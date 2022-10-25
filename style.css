@@ -1,0 +1,341 @@
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #9998;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	text-decoration: none;
+}
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: #3344;
+	font-family: 'Lato', sans-serif;
+
+}
+h1{
+	color: #88;
+  font-size:60px;
+  padding:30px;
+}
+.row{
+	width:100%;
+	display:flex;
+	justify-content:center;
+}
+
+.dropdown{
+	display: inline-block;
+	margin: 10px;
+}
+.parent{
+	display: block;
+}
+.parent > a{
+	display: block;
+	background-color: #f1f1f1;
+	box-sizing: border-box;
+	padding: 18px 30px;
+}
+
+ /*for icon rotation*/
+.dropdown .parent a span{
+	display: inline-block;
+	transition:0.4s;
+	font-size: 14px;
+}
+.dropdown .parent:hover > a span{
+	transform:rotate(-90deg);
+}
+
+
+.childs{
+	background-color: #d3d3d3;
+
+}
+.childs li{
+	display: block;
+	
+	border-bottom: 1px solid #f1f1f1;
+}
+.childs li a{
+	display: block;
+	box-sizing: border-box;
+	padding: 7px 30px;
+}
+
+/*main effect*/
+.dropdown-1 .childs{
+	display: none;
+}
+.dropdown-1 .parent:hover > .childs{
+	display: block;
+}
+
+.dropdown-2 .childs{
+	height: 0px;
+	transition: 0.4s;
+	overflow: hidden;
+}
+.dropdown-2 .parent:hover .childs{
+	height: 100px;
+	transition:0.4s;
+}
+
+
+.dropdown-3 .childs{
+	width: 0px;
+	height: 0px;
+	transition: 0.4s;
+	overflow: hidden;
+}
+.dropdown-3 .parent:hover  .childs{
+	width: 100%;
+	height: auto;
+}
+
+
+.dropdown-4 .parent{
+	position: relative;
+	overflow: hidden;
+}
+.dropdown-4 .childs{
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+	top: -400%;
+	left: 0;
+	transition: 0.1s;
+}
+.dropdown-4 .parent:hover{
+	overflow: visible;
+}
+.dropdown-4 .parent:hover  .childs{
+	top: 100%;
+}
+
+
+.dropdown-5 .parent{
+	position: relative;
+	overflow: hidden;
+}
+.dropdown-5 .childs{
+	position: absolute;
+	width: 100%; 
+	z-index: 1;
+	top: 400%; /*just changed*/
+	left: 0;
+	transition: 0.1s;
+}
+.dropdown-5 .parent:hover{
+	overflow: visible;
+}
+.dropdown-5 .parent:hover  .childs{
+	top: 100%;
+}
+
+
+.dropdown-6 .parent{
+	position: relative;
+	overflow: hidden;
+}
+.dropdown-6 .childs{
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+	top: 100%;
+	right: 200px; /*just changed*/
+	transition: 0.4s;
+
+}
+.dropdown-6 .parent:hover{
+	overflow: visible;
+}
+.dropdown-6 .parent:hover  .childs{
+	right: 0px; /*just changed*/
+	transform: rotate(360deg); /*just changed*/
+}
+
+
+
+.dropdown-7 .parent{
+	position: relative;
+	overflow: hidden;
+}
+.dropdown-7 .childs{
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+	top: 100%;
+	left: -100px; /*just changed*/
+	transition: 0.4s;
+	transform: scale(0); /*just changed*/
+}
+.dropdown-7 .parent:hover{
+	overflow: visible;
+}
+.dropdown-7 .parent:hover  .childs{
+	left: 0px; /*just changed*/
+	transform: scale(1); /*just changed*/
+}
+
+
+.dropdown-8 .parent{
+	position: relative;
+}
+.dropdown-8 .childs{
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+	top: 100%; 
+	left: 0; /*just changed*/
+	transition: 0.4s;
+	transform: scale(0); /*just changed*/
+}
+
+.dropdown-8 .parent:hover  .childs{
+	transform: scale(1); /*just changed*/
+}
+
+
+.dropdown-9 .parent{
+	position: relative;
+}
+.dropdown-9 .childs{
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+	top: 100%;
+	right: -100px; /*just changed*/
+	transition: 0.4s;
+	transform: scale(0); 
+}
+
+.dropdown-9 .parent:hover  .childs{
+	right: 0px; /*just changed*/
+	transform: scale(1);
+}
+
+      
+      
+ }
+
+
